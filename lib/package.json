@@ -1,0 +1,54 @@
+{
+    "name": "@alcs/react-native-input-autofocus",
+    "version": "0.0.0",
+    "description": "",
+    "main": "lib/commonjs/index.js",
+    "module": "lib/module/index.js",
+    "react-native": "src/index.tsx",
+    "types": "lib/typescript/index.d.ts",
+    "files": [
+        "lib/",
+        "src/"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "scripts": {
+        "build": "bob build"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/core": "^7.12.9",
+        "@babel/preset-env": "^7.19.0",
+        "@babel/runtime": "^7.12.5",
+        "@types/react": "^18.0.18",
+        "@types/react-native": "^0.69.6",
+        "react": "18.1.0",
+        "react-native": "0.70.0",
+        "react-native-builder-bob": "^0.18.3",
+        "typescript": "^4.8.2"
+    },
+    "react-native-builder-bob": {
+        "source": "src",
+        "output": "lib",
+        "targets": [
+            [
+                "commonjs",
+                {
+                    "copyFlow": true
+                }
+            ],
+            "module",
+            "typescript"
+        ]
+    },
+    "peerDependencies": {
+        "react": "18.1.0",
+        "react-native": "0.70.0"
+    },
+    "dependencies": {
+        "@sirse-dev/safe-context": "^0.3.0"
+    }
+}
