@@ -4,115 +4,92 @@ import { NativeMethods } from 'react-native';
 
 import { InputFocusControllerContext } from './InputFocusControllerContext';
 
-let uniqueId = 0;
-const uuid = () => uniqueId++;
-
-class Node<T> {
-    constructor(public value: T, public next: Node<T> | null, public id: number) {}
+export class Node<T> {
+    public value: T;
+    public next: Node<T> | null;
+    public prev: Node<T> | null;
+    constructor(value: T) {
+        this.value = value;
+        this.next = null;
+        this.prev = null;
+    }
 }
 
-export class LinkedList<T> {
+class DoublyLinkedList<T> {
     private head: Node<T> | null = null;
-    public size = 0;
+    private tail: Node<T> | null = null;
 
-    private getLastNode = () => {
-        if (this.size === 0) {
+    public push = (value: T) => {
+        let newNode = new Node(value);
+
+        if (this.tail) {
+            this.tail.next = newNode;
+            newNode.prev = this.tail;
+            this.tail = newNode;
+            return this.tail;
+        }
+        this.head = newNode;
+        this.tail = newNode;
+        return this.tail;
+    };
+
+    public removeAt = (node: Node<T>) => {
+        if (this.head === node && node === this.tail) {
+            this.head = null;
+            this.tail = null;
+
+            return undefined;
+        }
+        if (this.head === node) {
+            this.head = this.head.next;
             return null;
         }
-
-        let node = this.head!;
-
-        while (node.next !== null) {
-            node = node.next;
-        }
-
-        return node;
-    };
-
-    public get = (id: number) => {
-        if (this.size === 0) {
-            return null;
-        }
-
-        let node = this.head!;
-
-        while (node.next && node.id !== id) {
-            node = node.next;
-        }
-
-        return node;
-    };
-
-    public push = (value: T): number => {
-        const id = uuid();
-        const node = new Node(value, null, id);
-
-        if (this.size === 0) {
-            this.head = node;
-        } else {
-            const lastNode = this.getLastNode()!;
-
-            lastNode.next = node;
-        }
-
-        this.size++;
-        return id;
-    };
-
-    public remove = (id: number) => {
-        if (this.size === 0) {
-            return;
-        }
-
-        let prevNode = this.head!,
-            node = this.head!;
-
-        while (node.id !== id) {
-            prevNode = node;
-            if (!node.next) {
-                throw new Error('hello');
+        if (this.tail === node) {
+            this.tail = this.tail.prev;
+            if (this.tail?.next) {
+                this.tail.next = null;
             }
-            node = node.next;
+            return undefined;
         }
 
-        prevNode.next = node.next;
-
-        this.size--;
+        if (node.next != null) {
+            node.next.prev = node.prev;
+        }
+        if (node.prev != null) {
+            node.prev.next = node.next;
+        }
+        return undefined;
     };
 }
 
 export const InputFocusController = ({ children }: PropsWithChildren<{}>) => {
-    const refs = useRef(new LinkedList<RefObject<NativeMethods | undefined>>());
+    const refs = useRef(new DoublyLinkedList<RefObject<NativeMethods | undefined>>());
 
     const register = useCallback((ref: RefObject<NativeMethods | undefined>) => {
-        const id = refs.current.push(ref);
-        return id;
+        const node = refs.current.push(ref);
+        return node;
     }, []);
 
-    const unregister = useCallback((id: number) => {
-        refs.current.remove(id);
+    const unregister = useCallback((node: Node<RefObject<NativeMethods | undefined>>) => {
+        refs.current.removeAt(node);
     }, []);
 
     const createOnSubmitEditing = useCallback(
-        (id: number) => {
+        (node: Node<RefObject<NativeMethods | undefined>>) => {
             return () => {
-                console.log(id);
-                const currentRef = refs.current.get(id);
-                const nextRef = currentRef?.next?.value;
-                if (nextRef) {
-                    nextRef.current?.focus();
+                if (node.next) {
+                    node.next.value.current?.focus();
                 } else {
-                    currentRef?.value.current?.blur();
+                    node.value.current?.blur();
                 }
             };
         },
         [refs]
     );
+
     return (
         <InputFocusControllerContext.Provider value={{ register, unregister, createOnSubmitEditing }}>
             {children}
         </InputFocusControllerContext.Provider>
     );
 };
-
-export const useInputFocusControllerContext = () => useSafeContext(InputFocusControllerContext);

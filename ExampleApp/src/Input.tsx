@@ -1,3 +1,7 @@
+import {
+  Node,
+  useInputFocusControllerContext,
+} from '@alcs/react-native-input-autofocus';
 import React, {useEffect, useRef, useState} from 'react';
 import {
   NativeMethods,
@@ -5,7 +9,6 @@ import {
   TextInput,
   TextInputProps,
 } from 'react-native';
-import {useInputFocusControllerContext} from '@alcs/react-native-input-autofocus';
 
 type InputProps = TextInputProps;
 
@@ -13,24 +16,36 @@ export const Input = ({...other}: InputProps) => {
   const {register, unregister, createOnSubmitEditing} =
     useInputFocusControllerContext();
 
-  const [inputIndex, setInputIndex] = useState(0);
+  const [node, setNode] =
+    useState<Node<React.RefObject<NativeMethods | undefined>>>();
+
   const inputRef = useRef<NativeMethods>(null);
 
   useEffect(() => {
-    const index = register(inputRef);
-    setInputIndex(index);
+    const newNode = register(inputRef);
+    setNode(newNode);
 
     return () => {
-      unregister(index);
+      unregister(newNode);
     };
   }, [register, unregister]);
+
+  const [typedValue, setTypedValue] = useState('');
+  useEffect(() => {
+    if (typedValue === 'del' && node) {
+      unregister(node);
+    }
+  });
 
   return (
     <TextInput
       style={styles.input}
+      value={typedValue}
+      onChangeText={setTypedValue}
       ref={inputRef}
+      returnKeyType="go"
       blurOnSubmit={false}
-      onSubmitEditing={createOnSubmitEditing(inputIndex)}
+      onSubmitEditing={node && createOnSubmitEditing(node)}
       {...other}
     />
   );
