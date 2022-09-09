@@ -1,7 +1,7 @@
 import { RefObject } from 'react';
 import { NativeMethods } from 'react-native';
 import { createSafeContext, useSafeContext } from '@sirse-dev/safe-context';
-import { Node } from './InputFocusController';
+import { Node } from './DoublyLinkedList';
 
 type InputFocusControllerContextType = {
     register: (ref: RefObject<NativeMethods | undefined>) => Node<React.RefObject<NativeMethods | undefined>>;
