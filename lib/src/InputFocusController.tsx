@@ -1,6 +1,5 @@
-import { useSafeContext } from '@sirse-dev/safe-context';
 import React, { PropsWithChildren, RefObject, useCallback, useRef } from 'react';
-import { NativeMethods } from 'react-native';
+import { TextInput } from 'react-native';
 
 import { InputFocusControllerContext } from './InputFocusControllerContext';
 
@@ -63,19 +62,19 @@ class DoublyLinkedList<T> {
 }
 
 export const InputFocusController = ({ children }: PropsWithChildren<{}>) => {
-    const refs = useRef(new DoublyLinkedList<RefObject<NativeMethods | undefined>>());
+    const refs = useRef(new DoublyLinkedList<RefObject<TextInput | undefined>>());
 
-    const register = useCallback((ref: RefObject<NativeMethods | undefined>) => {
+    const register = useCallback((ref: RefObject<TextInput | undefined>) => {
         const node = refs.current.push(ref);
         return node;
     }, []);
 
-    const unregister = useCallback((node: Node<RefObject<NativeMethods | undefined>>) => {
+    const unregister = useCallback((node: Node<RefObject<TextInput | undefined>>) => {
         refs.current.remove(node);
     }, []);
 
     const createOnSubmitEditing = useCallback(
-        (node: Node<RefObject<NativeMethods | undefined>>) => {
+        (node: Node<RefObject<TextInput | undefined>>) => {
             return () => {
                 if (node.next) {
                     node.next.value.current?.focus();
