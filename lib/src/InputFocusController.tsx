@@ -33,7 +33,7 @@ class DoublyLinkedList<T> {
         return this.tail;
     };
 
-    public removeAt = (node: Node<T>) => {
+    public remove = (node: Node<T>) => {
         if (this.head === node && node === this.tail) {
             this.head = null;
             this.tail = null;
@@ -71,7 +71,7 @@ export const InputFocusController = ({ children }: PropsWithChildren<{}>) => {
     }, []);
 
     const unregister = useCallback((node: Node<RefObject<NativeMethods | undefined>>) => {
-        refs.current.removeAt(node);
+        refs.current.remove(node);
     }, []);
 
     const createOnSubmitEditing = useCallback(
