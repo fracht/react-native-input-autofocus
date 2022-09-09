@@ -1,6 +1,6 @@
 import { RefObject, useEffect, useRef, useState } from 'react';
 import { TextInput, ReturnKeyTypeOptions } from 'react-native';
-import { Node } from './InputFocusController';
+import { Node } from './DoublyLinkedList';
 import { useInputFocusControllerContext } from './InputFocusControllerContext';
 
 type useInputFocusControllerReturnType = {
