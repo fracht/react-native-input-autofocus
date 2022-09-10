@@ -1,0 +1,12 @@
+{
+    "extends": ["@sirse-dev/eslint-config"],
+    "root": false,
+    "overrides": [
+        {
+            "files": ["*.ts", "*.tsx"],
+            "rules": {
+                "unicorn/no-null": "off"
+            }
+        }
+    ]
+}

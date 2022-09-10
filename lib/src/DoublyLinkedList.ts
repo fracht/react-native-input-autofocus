@@ -14,7 +14,7 @@ export class DoublyLinkedList<T> {
     private tail: Node<T> | null = null;
 
     public push = (value: T) => {
-        let newNode = new Node(value);
+        const newNode = new Node(value);
 
         if (this.tail) {
             this.tail.next = newNode;
