@@ -17,7 +17,7 @@ export const useInputFocusController = (): UseInputFocusControllerBag => {
     const [node, setNode] =
         useState<Node<React.RefObject<TextInput | undefined>>>();
 
-    const inputRef = useRef<TextInput>(null);
+    const inputReference = useRef<TextInput>(null);
 
     const [returnKeyType, setReturnKeyType] = useState<ReturnKeyTypeOptions>();
 
@@ -30,7 +30,7 @@ export const useInputFocusController = (): UseInputFocusControllerBag => {
     }, [node]);
 
     const handleRegister = useCallback(() => {
-        const node = register(inputRef);
+        const node = register(inputReference);
         setNode(node);
 
         return () => {
@@ -41,7 +41,7 @@ export const useInputFocusController = (): UseInputFocusControllerBag => {
     return {
         onSubmitEditing: node && createOnSubmitEditing(node),
         returnKeyType: returnKeyType,
-        ref: inputRef,
+        ref: inputReference,
         register: handleRegister,
     };
 };

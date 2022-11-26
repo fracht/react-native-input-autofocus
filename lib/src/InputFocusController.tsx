@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import React, {
     PropsWithChildren,
     RefObject,
@@ -10,18 +11,21 @@ import { DoublyLinkedList, Node } from './DoublyLinkedList';
 import { InputFocusControllerContext } from './InputFocusControllerContext';
 
 export const InputFocusController = ({ children }: PropsWithChildren<{}>) => {
-    const refs = useRef(
+    const references = useRef(
         new DoublyLinkedList<RefObject<TextInput | undefined>>()
     );
 
-    const register = useCallback((ref: RefObject<TextInput | undefined>) => {
-        const node = refs.current.push(ref);
-        return node;
-    }, []);
+    const register = useCallback(
+        (reference: RefObject<TextInput | undefined>) => {
+            const node = references.current.push(reference);
+            return node;
+        },
+        []
+    );
 
     const unregister = useCallback(
         (node: Node<RefObject<TextInput | undefined>>) => {
-            refs.current.remove(node);
+            references.current.remove(node);
         },
         []
     );

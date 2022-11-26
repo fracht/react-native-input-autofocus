@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import { createSafeContext, useSafeContext } from '@sirse-dev/safe-context';
 import { RefObject } from 'react';
 import { TextInput } from 'react-native';
@@ -6,7 +7,7 @@ import { Node } from './DoublyLinkedList';
 
 type InputFocusControllerContextType = {
     register: (
-        ref: RefObject<TextInput | undefined>
+        reference: RefObject<TextInput | undefined>
     ) => Node<React.RefObject<TextInput | undefined>>;
     unregister: (node: Node<RefObject<TextInput | undefined>>) => void;
     createOnSubmitEditing: (
