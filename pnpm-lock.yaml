@@ -12,6 +12,7 @@ importers:
       '@babel/preset-env': ^7.19.0
       '@babel/runtime': ^7.12.5
       '@react-native-community/cli-platform-android': ^9.1.0
+      '@react-native-community/cli-platform-ios': ^9.3.0
       '@react-native-community/eslint-config': ^2.0.0
       '@rnx-kit/metro-config': ^1.2.38
       '@rnx-kit/metro-resolver-symlinks': ^0.1.21
@@ -42,6 +43,7 @@ importers:
       '@babel/preset-env': 7.19.0_@babel+core@7.19.0
       '@babel/runtime': 7.19.0
       '@react-native-community/cli-platform-android': 9.1.0
+      '@react-native-community/cli-platform-ios': 9.3.0
       '@react-native-community/eslint-config': 2.0.0_yqf6kl63nyoq5megxukfnom5rm
       '@rnx-kit/metro-config': 1.2.38_qfbv2i7xvsicxtnb3ocvvonziq
       '@rnx-kit/metro-resolver-symlinks': 0.1.21
@@ -1938,7 +1940,7 @@ packages:
   /@react-native-community/cli-clean/9.1.0:
     resolution: {integrity: sha512-3HznNw8EBQtLsVyV8b8+h76M9EeJcJgYn5wZVGQ5mghAOhqnSWVbwRvpDdb8ITXaiTIXFGNOxXnGKMXsu0CYTw==}
     dependencies:
-      '@react-native-community/cli-tools': 9.1.0
+      '@react-native-community/cli-tools': 9.2.1
       chalk: 4.1.2
       execa: 1.0.0
       prompts: 2.4.2
@@ -1948,7 +1950,7 @@ packages:
   /@react-native-community/cli-config/9.1.0:
     resolution: {integrity: sha512-6G9d5weedQ6EMz37ZYXrFHCU2DG3yqvdLs4Jo2383cSxal+oO+kggaTgqLBKoMETz/S80KsMeC/l+MoRjc1pzw==}
     dependencies:
-      '@react-native-community/cli-tools': 9.1.0
+      '@react-native-community/cli-tools': 9.2.1
       cosmiconfig: 5.2.1
       deepmerge: 3.3.0
       glob: 7.2.3
@@ -1967,8 +1969,8 @@ packages:
     resolution: {integrity: sha512-H4d3BezMjgA49rP6saFS7P6Q86n2kNUlxltuTx9VDl2nx44HjFPs+srnNCE0asrOJcI2TBqwDIMTsX5ltVaCig==}
     dependencies:
       '@react-native-community/cli-config': 9.1.0
-      '@react-native-community/cli-platform-ios': 9.1.0
-      '@react-native-community/cli-tools': 9.1.0
+      '@react-native-community/cli-platform-ios': 9.3.0
+      '@react-native-community/cli-tools': 9.2.1
       chalk: 4.1.2
       command-exists: 1.2.9
       envinfo: 7.8.1
@@ -1989,7 +1991,7 @@ packages:
     resolution: {integrity: sha512-Ly4dnlRZZ7FckFfSWnaD5BxszuEe9/WcJ6A7srW5UobqnnmEznDv1IY0oBTq1ggnmzIquM9dJQZ0UbcZeQjkoA==}
     dependencies:
       '@react-native-community/cli-platform-android': 9.1.0
-      '@react-native-community/cli-tools': 9.1.0
+      '@react-native-community/cli-tools': 9.2.1
       chalk: 4.1.2
       hermes-profile-transformer: 0.0.6
       ip: 1.1.8
@@ -2009,10 +2011,10 @@ packages:
     transitivePeerDependencies:
       - encoding
 
-  /@react-native-community/cli-platform-ios/9.1.0:
-    resolution: {integrity: sha512-NtZ9j+VXLj8pxsk/trxbS779uXp/ge4fSwDWNwOM9APRoTcClJ/Xp8cp1koXwfULSn152Czo0u5b291DG2WRfQ==}
+  /@react-native-community/cli-platform-ios/9.3.0:
+    resolution: {integrity: sha512-nihTX53BhF2Q8p4B67oG3RGe1XwggoGBrMb6vXdcu2aN0WeXJOXdBLgR900DAA1O8g7oy1Sudu6we+JsVTKnjw==}
     dependencies:
-      '@react-native-community/cli-tools': 9.1.0
+      '@react-native-community/cli-tools': 9.2.1
       chalk: 4.1.2
       execa: 1.0.0
       glob: 7.2.3
@@ -2024,7 +2026,7 @@ packages:
     resolution: {integrity: sha512-Y1eJIfYz6lucStFt5GpIR3ErnDDK85eLY8C7zTPA0vexcztDCnjBBkBXkrhGdElrR/Iz2xepuewgOFW616YA9Q==}
     dependencies:
       '@react-native-community/cli-server-api': 9.1.0
-      '@react-native-community/cli-tools': 9.1.0
+      '@react-native-community/cli-tools': 9.2.1
       chalk: 4.1.2
       metro: 0.72.2
       metro-config: 0.72.2
@@ -2044,7 +2046,7 @@ packages:
     resolution: {integrity: sha512-Xf3hUqUc99hVmWOsmfNqUQ+sxhut9MIHlINzlo7Azxlmg9v9U/vtwJVJSIPD6iwPzvaPH1qeshzwy/r0GUR7fg==}
     dependencies:
       '@react-native-community/cli-debugger-ui': 9.0.0
-      '@react-native-community/cli-tools': 9.1.0
+      '@react-native-community/cli-tools': 9.2.1
       compression: 1.7.4
       connect: 3.7.0
       errorhandler: 1.5.1
@@ -2060,6 +2062,21 @@ packages:
 
   /@react-native-community/cli-tools/9.1.0:
     resolution: {integrity: sha512-07Z1hyy4cYty84P9cGq+Xf8Vb0S/0ffxLVdVQEMmLjU71sC9YTUv1anJdZyt6f9uUPvA9+e/YIXw5Bu0rvuXIw==}
+    dependencies:
+      appdirsjs: 1.2.7
+      chalk: 4.1.2
+      find-up: 5.0.0
+      mime: 2.6.0
+      node-fetch: 2.6.7
+      open: 6.4.0
+      ora: 5.4.1
+      semver: 6.3.0
+      shell-quote: 1.7.3
+    transitivePeerDependencies:
+      - encoding
+
+  /@react-native-community/cli-tools/9.2.1:
+    resolution: {integrity: sha512-bHmL/wrKmBphz25eMtoJQgwwmeCylbPxqFJnFSbkqJPXQz3ManQ6q/gVVMqFyz7D3v+riaus/VXz3sEDa97uiQ==}
     dependencies:
       appdirsjs: 1.2.7
       chalk: 4.1.2
@@ -2090,7 +2107,7 @@ packages:
       '@react-native-community/cli-hermes': 9.1.0
       '@react-native-community/cli-plugin-metro': 9.1.0_@babel+core@7.19.0
       '@react-native-community/cli-server-api': 9.1.0
-      '@react-native-community/cli-tools': 9.1.0
+      '@react-native-community/cli-tools': 9.2.1
       '@react-native-community/cli-types': 9.1.0
       chalk: 4.1.2
       commander: 9.4.0
@@ -7599,7 +7616,7 @@ packages:
       '@jest/create-cache-key-function': 27.5.1
       '@react-native-community/cli': 9.1.0_@babel+core@7.19.0
       '@react-native-community/cli-platform-android': 9.1.0
-      '@react-native-community/cli-platform-ios': 9.1.0
+      '@react-native-community/cli-platform-ios': 9.3.0
       '@react-native/assets': 1.0.0
       '@react-native/normalize-color': 2.0.0
       '@react-native/polyfills': 2.0.0

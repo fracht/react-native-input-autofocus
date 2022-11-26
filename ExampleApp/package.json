@@ -19,6 +19,7 @@
     "@babel/preset-env": "^7.19.0",
     "@babel/runtime": "^7.12.5",
     "@react-native-community/cli-platform-android": "^9.1.0",
+    "@react-native-community/cli-platform-ios": "^9.3.0",
     "@react-native-community/eslint-config": "^2.0.0",
     "@rnx-kit/metro-config": "^1.2.38",
     "@rnx-kit/metro-resolver-symlinks": "^0.1.21",
