@@ -5,14 +5,14 @@ import {InputFocusController} from '@alcs/react-native-input-autofocus';
 
 export const TestPage = () => {
   return (
-    <InputFocusController>
-      <View style={styles.container}>
+    <View style={styles.container}>
+      <InputFocusController>
         <Input placeholder="Input 1" />
         <Input placeholder="Input 2" />
         <Input placeholder="Input 3" />
         <Input placeholder="Input 4" />
-      </View>
-    </InputFocusController>
+      </InputFocusController>
+    </View>
   );
 };
 
@@ -20,5 +20,6 @@ const styles = StyleSheet.create({
   container: {
     marginHorizontal: 16,
     marginVertical: 16,
+    justifyContent: 'center',
   },
 });

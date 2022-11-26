@@ -36,6 +36,7 @@ export const Input = ({enableAutoFocus = true, ...other}: InputProps) => {
 
 const styles = StyleSheet.create({
   input: {
+    padding: 4,
     marginVertical: 1,
     borderRadius: 10,
     borderWidth: 1,
