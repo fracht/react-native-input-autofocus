@@ -1,5 +1,5 @@
 {
-    "name": "@alcs/react-native-input-autofocus",
+    "name": "react-native-input-autofocus",
     "version": "0.0.0",
     "description": "",
     "main": "./dist/commonjs/index.js",
