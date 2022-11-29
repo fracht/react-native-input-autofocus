@@ -101,6 +101,6 @@ export const YourPage = () => {
 };
 ```
 
-## License
+##License
 
 MIT © [Aleksandras Bogdanovas <aleksandras.bogdanovas21@gmail.com>](https://github.com/Aleksandriukas)

@@ -13,13 +13,21 @@
     "publishConfig": {
         "access": "public"
     },
+    "keywords": [
+        "react-native",
+        "autofocus",
+        "next-field",
+        "enter",
+        "onenter",
+        "input",
+        "textField"
+    ],
+    "author": "Aleksandras Bogdanovas",
+    "license": "MIT",
     "scripts": {
         "build": "bob build",
         "test": "jest"
     },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
     "devDependencies": {
         "@babel/core": "^7.12.9",
         "@babel/preset-env": "^7.19.0",
