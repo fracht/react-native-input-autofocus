@@ -1,14 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, TextInput, TextInputProps} from 'react-native';
 import {useInputFocusController} from '@alcs/react-native-input-autofocus';
 
-export const Input = (other: TextInputProps) => {
-  const {register, ref, onSubmitEditing, returnKeyType} =
-    useInputFocusController();
-
-  useEffect(() => {
-    register();
-  }, [register]);
+export const Input = (props: TextInputProps) => {
+  const focusController = useInputFocusController();
 
   const [typedValue, setTypedValue] = useState('');
 
@@ -17,11 +12,8 @@ export const Input = (other: TextInputProps) => {
       onChangeText={setTypedValue}
       value={typedValue}
       style={styles.input}
-      ref={ref}
-      blurOnSubmit={false}
-      returnKeyType={returnKeyType}
-      onSubmitEditing={onSubmitEditing}
-      {...other}
+      {...focusController}
+      {...props}
     />
   );
 };
