@@ -1,3 +1,4 @@
+//#region example
 import React, {useState} from 'react';
 import {StyleSheet, TextInput, TextInputProps} from 'react-native';
 import {useInputFocusController} from '@alcs/react-native-input-autofocus';
@@ -17,6 +18,7 @@ export const Input = (props: TextInputProps) => {
     />
   );
 };
+//#endregion
 
 const styles = StyleSheet.create({
   input: {
