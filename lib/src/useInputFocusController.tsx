@@ -1,4 +1,4 @@
-import { RefObject, useCallback, useEffect, useRef, useState } from 'react';
+import { RefObject, useEffect, useRef, useState } from 'react';
 import { TextInput, ReturnKeyTypeOptions } from 'react-native';
 import { Node } from './DoublyLinkedList';
 import { useInputFocusControllerContext } from './InputFocusControllerContext';
@@ -7,7 +7,7 @@ export type UseInputFocusControllerBag = {
     returnKeyType?: ReturnKeyTypeOptions;
     onSubmitEditing?: () => void;
     ref: RefObject<TextInput>;
-    register: () => () => void;
+    blurOnSubmit: boolean;
 };
 
 export const useInputFocusController = (): UseInputFocusControllerBag => {
@@ -29,7 +29,7 @@ export const useInputFocusController = (): UseInputFocusControllerBag => {
         setReturnKeyType('done');
     }, [node]);
 
-    const handleRegister = useCallback(() => {
+    useEffect(() => {
         const node = register(inputReference);
         setNode(node);
 
@@ -42,6 +42,6 @@ export const useInputFocusController = (): UseInputFocusControllerBag => {
         onSubmitEditing: node && createOnSubmitEditing(node),
         returnKeyType: returnKeyType,
         ref: inputReference,
-        register: handleRegister,
+        blurOnSubmit: returnKeyType === 'done',
     };
 };
