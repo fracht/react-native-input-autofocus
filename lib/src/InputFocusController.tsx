@@ -22,7 +22,6 @@ export const InputFocusController = ({ children }: PropsWithChildren<{}>) => {
         },
         []
     );
-    //TODO add unregister functionality
     const unregister = useCallback(
         (node: Node<RefObject<TextInput | undefined>>) => {
             references.current.remove(node);
