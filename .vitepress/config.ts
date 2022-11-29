@@ -3,7 +3,6 @@ import { defineConfig } from 'vitepress';
 export default defineConfig({
     title: 'input-autofocus',
     description: 'Support for next input focusing functionality.',
-    base: '/react-native-input-autofocus/',
     themeConfig: {
         socialLinks: [
             {
