@@ -1,6 +1,6 @@
 # @alcs/react-native-input-autofocus
 
-> Best solution for your react-native application
+> Support for next input focusing functionality
 
 ## Introduction
 
