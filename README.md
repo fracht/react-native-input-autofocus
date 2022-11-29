@@ -1,6 +1,6 @@
 # @alcs/react-native-input-autofocus
 
-> Best solution for your react-native application
+> Support for next input focusing functionality
 
 ## Introduction
 
@@ -21,12 +21,12 @@ Android
 <tr>
 <td>
 
-![Example](./docs/./assets/iosExample.gif)
+![Example](./docs/assets/iosExample.gif)
 
 </td>
 <td>
 
-![Example](./docs/./assets/androidExample.gif)
+![Example](./docs/assets/androidExample.gif)
 
 </td>
 </tr>
