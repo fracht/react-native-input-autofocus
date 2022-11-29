@@ -21,12 +21,12 @@ Android
 <tr>
 <td>
 
-![Example](./assets/iosExample.gif)
+![Example](./docs/./assets/iosExample.gif)
 
 </td>
 <td>
 
-![Example](./assets/androidExample.gif)
+![Example](./docs/./assets/androidExample.gif)
 
 </td>
 </tr>
@@ -58,13 +58,13 @@ pnpm add @alcs/react-native-input-autofocus
 
 -   Create or add to your `<Input />` component.
 
-```tsx{3,6,14}
+```tsx
 import React, { useState } from 'react';
 import { StyleSheet, TextInput, TextInputProps } from 'react-native';
-import { useInputFocusController } from '@alcs/react-native-input-autofocus'; // [!code focus]
+import { useInputFocusController } from '@alcs/react-native-input-autofocus';
 
 export const Input = (props: TextInputProps) => {
-    const focusController = useInputFocusController(); // [!code focus]
+    const focusController = useInputFocusController();
 
     const [typedValue, setTypedValue] = useState('');
 
@@ -72,7 +72,7 @@ export const Input = (props: TextInputProps) => {
         <TextInput
             onChangeText={setTypedValue}
             value={typedValue}
-            {...focusController} // [!code focus]
+            {...focusController}
             {...props}
         />
     );
@@ -81,26 +81,26 @@ export const Input = (props: TextInputProps) => {
 
 -   Wrap component where you want to add auto focus.
 
-```tsx{4,8,15}
+```tsx
 import React from 'react';
 import { Input } from './Input';
 import { View } from 'react-native';
-import { InputFocusController } from '@alcs/react-native-input-autofocus'; // [!code focus]
+import { InputFocusController } from '@alcs/react-native-input-autofocus';
 
 export const YourPage = () => {
     return (
-         <InputFocusController> // [!code focus]
+        <InputFocusController>
             <View>
                 <Input placeholder="Input 1" />
                 <Input placeholder="Input 2" />
                 <Input placeholder="Input 3" />
                 <Input placeholder="Input 4" />
             </View>
-        </InputFocusController> // [!code focus]
+        </InputFocusController>
     );
 };
 ```
 
-##License
+## License
 
 MIT © [Aleksandras Bogdanovas <aleksandras.bogdanovas21@gmail.com>](https://github.com/Aleksandriukas)
