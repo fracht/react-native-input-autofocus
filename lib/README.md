@@ -21,12 +21,12 @@ Android
 <tr>
 <td>
 
-![Example](../docs/assets/iosExample.gif)
+![Example](docs/assets/iosExample.gif)
 
 </td>
 <td>
 
-![Example](../docs/assets/androidExample.gif)
+![Example](docs/assets/androidExample.gif)
 
 </td>
 </tr>
