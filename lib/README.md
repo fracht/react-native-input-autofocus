@@ -1,9 +1,5 @@
 # @alcs/react-native-input-autofocus
 
-> Support for next input focusing functionality
-
-## Introduction
-
 This package simplifies the focus system on the next input.
 
 <table>

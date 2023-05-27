@@ -3,6 +3,7 @@
     "withoutPublish": true,
     "packageManager": "pnpm",
     "tempDir": "prepared-package",
+    "cleanDocs": true,
     "fields": [
         "react-native-builder-bob"
     ]

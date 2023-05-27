@@ -6,7 +6,11 @@
     "module": "./dist/module/index.js",
     "react-native": "./src/index.tsx",
     "types": "./dist/typescript/index.d.ts",
-	"repository": "https://github.com/fracht/react-native-input-autofocus/tree/main/lib",
+	"repository": {
+        "type": "git",
+        "url": "https://github.com/fracht/react-native-input-autofocus.git",
+        "directory": "lib"
+    },
     "exports": {
         "types": "./dist/typescript/index.d.ts",
         "import": "./dist/module/index.js"
