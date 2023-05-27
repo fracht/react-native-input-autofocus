@@ -21,12 +21,11 @@ Android
 <tr>
 <td>
 
-![Example](docs/assets/iosExample.gif)
-
+![Example](https://raw.githubusercontent.com/fracht/react-native-input-autofocus/75d9ef95574f1a1b59c3d40fc7845c9a29de6b7d/docs/assets/iosExample.gif)
 </td>
 <td>
 
-![Example](docs/assets/androidExample.gif)
+![Example](https://raw.githubusercontent.com/fracht/react-native-input-autofocus/75d9ef95574f1a1b59c3d40fc7845c9a29de6b7d/docs/assets/androidExample.gif)
 
 </td>
 </tr>
