@@ -10,6 +10,7 @@ concurrency: ${{ github.workflow }}-${{ github.ref }}
 jobs:
     release:
         permissions:
+            pull-requests: write
             id-token: write
         timeout-minutes: 5
         name: Release
