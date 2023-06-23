@@ -1,0 +1,33 @@
+name: Changeset existence
+on:
+    pull_request:
+        branches: [main]
+        types: [labeled, opened, synchronize, reopened]
+    workflow_dispatch:
+jobs:
+    changeset:
+        name: Check for changeset existence
+        runs-on: ubuntu-latest
+        if: ${{ !contains(github.event.pull_request.labels.*.name, 'chore') }}
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+              with:
+                  fetch-depth: 0
+
+            - name: Use Node 18
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 18
+
+            - name: Install pnpm 8.5.1
+              uses: pnpm/action-setup@v2.2.4
+              with:
+                  version: 8.5.1
+
+            - name: Install global dependencies
+              uses: covbot/pnpm-install-with-cache@v1
+
+            - name: Run changeset status
+              run: pnpm changeset status --since=origin/main

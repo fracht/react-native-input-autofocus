@@ -1,0 +1,45 @@
+name: Release
+
+on:
+    push:
+        branches:
+            - main
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+    release:
+        name: Release
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Repo
+              uses: actions/checkout@v2
+
+            - name: Setup Node.js 18.x
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 18.x
+
+            - name: Install pnpm 8.5.1
+              uses: pnpm/action-setup@v2.2.4
+              with:
+                  version: 8.5.1
+
+            - name: Install Dependencies
+              uses: covbot/pnpm-install-with-cache@v1
+
+            - name: Creating .npmrc
+              run: |
+                  cat << EOF > "$HOME/.npmrc"
+                    //registry.npmjs.org/:_authToken=$NPM_TOKEN
+                  EOF
+              env:
+                  NPM_TOKEN: ${{ secrets.NPM_BOT_TOKEN }}
+
+            - name: Create Release Pull Request or Publish to npm
+              uses: changesets/action@v1
+              with:
+                  version: pnpm bump
+                  publish: pnpm release
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
