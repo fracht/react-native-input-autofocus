@@ -12,6 +12,7 @@ jobs:
         permissions:
             pull-requests: write
             id-token: write
+            contents: write
         timeout-minutes: 5
         name: Release
         runs-on: ubuntu-latest
