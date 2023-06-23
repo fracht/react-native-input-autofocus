@@ -1,0 +1,10 @@
+{
+    "$schema": "./node_modules/clean-publish/schema.json",
+    "withoutPublish": true,
+    "packageManager": "pnpm",
+    "tempDir": "prepared-package",
+    "cleanDocs": true,
+    "fields": [
+        "react-native-builder-bob"
+    ]
+}
