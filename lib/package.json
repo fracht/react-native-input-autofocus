@@ -1,6 +1,6 @@
 {
     "name": "@alcs/react-native-input-autofocus",
-    "version": "0.0.1",
+    "version": "0.0.0",
     "description": "Support for next input focusing functionality",
     "main": "./dist/commonjs/index.js",
     "module": "./dist/module/index.js",
@@ -13,7 +13,8 @@
     },
     "exports": {
         "types": "./dist/typescript/index.d.ts",
-        "import": "./dist/module/index.js"
+        "import": "./dist/module/index.js",
+        "require": "./dist/commonjs/index.js"
     },
     "files": [
         "dist/",
