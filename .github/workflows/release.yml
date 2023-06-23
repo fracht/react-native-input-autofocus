@@ -9,6 +9,9 @@ concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
     release:
+        permissions:
+            id-token: write
+        timeout-minutes: 5
         name: Release
         runs-on: ubuntu-latest
         steps:
@@ -43,3 +46,4 @@ jobs:
                   publish: pnpm release
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  NPM_CONFIG_PROVENANCE: true
