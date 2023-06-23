@@ -1,12 +1,12 @@
 {
     "name": "@alcs/react-native-input-autofocus",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "description": "Support for next input focusing functionality",
     "main": "./dist/commonjs/index.js",
     "module": "./dist/module/index.js",
     "react-native": "./src/index.tsx",
     "types": "./dist/typescript/index.d.ts",
-	"repository": {
+    "repository": {
         "type": "git",
         "url": "https://github.com/fracht/react-native-input-autofocus.git",
         "directory": "lib"
